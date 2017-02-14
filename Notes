@@ -1,0 +1,35 @@
+Show tree/blobs:
+
+$ git ls-tree -rt HEAD .
+040000 tree 0eed1217a2947f4930583229987d90fe5e8e0b74	data
+100644 blob 2e65efe2a145dda7ee51d1741299f848e5bf752e	data/letter.txt
+100644 blob 56a6051ca2b02b04ef92d5150c9ef600403cb1de	data/number.txt
+
+Show commit/tree:
+
+$ git show --format=raw
+commit 820ed2ea8b13be6f4abb62a849cc20a49500997c
+tree ffe298c3ce8bb07326f888907996eaa48d266db4
+author James Short <james.short@alumni.duke.edu> 1487049456 -0800
+committer James Short <james.short@alumni.duke.edu> 1487049456 -0800
+
+    a1
+
+Another way:
+
+$ git cat-file -p HEAD
+tree ffe298c3ce8bb07326f888907996eaa48d266db4
+author James Short <james.short@alumni.duke.edu> 1487049456 -0800
+committer James Short <james.short@alumni.duke.edu> 1487049456 -0800
+
+a1
+
+Show file blobs:
+
+$ git ls-files -s
+100644 2e65efe2a145dda7ee51d1741299f848e5bf752e 0	data/letter.txt
+100644 56a6051ca2b02b04ef92d5150c9ef600403cb1de 0	data/number.txt
+
+Get hash of file:
+
+gecho -en 'blob 1\0a' | gsha1sum
